@@ -2,16 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 use App\Http\Controllers\MainController;
 
-Route::get('/', [MainController::class, 'home']);
+Route::get('/', [MainController::class, 'home'])->name('home');
+
+// delete
+Route::get('/person/delete/{person}', [MainController::class, 'personDelete'])
+    ->name('person.delete');
+
+
+// form che l'utente utilizzera' per inserire i dati
+Route::get('/person/create', [MainController::class, 'personCreate'])
+    ->name('person.create');
+
+//  rotta per la ricezione dei dati dal form
+Route::post('/person/store', [MainController::class, 'personStore'])
+    ->name('person.store');
