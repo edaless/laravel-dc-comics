@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('firstName', 32);
             $table->string('lastName', 32);
 
-            // qual è il filtro del passato???
             $table->date('dateOfBirth');
             $table->integer('heigth')->unsigned()->nullable();
 

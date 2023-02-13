@@ -46,13 +46,19 @@ class MainController extends Controller
             'heigth' => 'nullable|integer|min:50|max:300'
         ]);
 
-        $person = new Person();
+        // queste cinque righe:
+        // $person = new Person();
+        // $person->firstName = $data['firstName'];
+        // $person->lastName = $data['lastName'];
+        // $person->dateOfBirth = $data['dateOfBirth'];
+        // $person->heigth = $data['heigth'];
 
-        $person->firstName = $data['firstName'];
-        $person->lastName = $data['lastName'];
-        $person->dateOfBirth = $data['dateOfBirth'];
-        $person->heigth = $data['heigth'];
+        // altrimenti questa:
+        $person = Person::create($data);
 
+
+
+        // questa in entrambi i casi
         $person->save();
 
         return redirect()->route('home');
